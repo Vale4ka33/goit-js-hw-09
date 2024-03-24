@@ -5,3 +5,16 @@
   |============================
 */
 @import url('./reset.css');
+@import url('./1-gallery.css');
+@import url('./2-form.css');
+
+
+body {
+  box-sizing: border-box;
+  padding: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.5;
+}
+

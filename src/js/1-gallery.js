@@ -2,8 +2,6 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
-
 const images = [
   {
     preview:
@@ -86,4 +84,13 @@ function createMarkUp(arr) {
   </li>`).join("");
 }
 
+
 container.innerHTML = createMarkUp(images);
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+  animationSpeed: 250,
+  animationSlide: true
+});
