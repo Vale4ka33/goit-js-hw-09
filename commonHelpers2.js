@@ -1,2 +1,2 @@
-import"./assets/styles-5f989786.js";console.log("Form");
+import"./assets/styles-b15b703f.js";const a=document.querySelector(".feedback-form"),o=a.querySelector('textarea[name="message"]'),r=a.querySelector('input[name="email"]'),t="feedback-form-state";let n={};a.addEventListener("input",m);let e=JSON.parse(localStorage.getItem(t));e&&(r.value=e.email||"",o.value=e.message||"");function m(l){n={email:r.value,message:o.value},localStorage.setItem(t,JSON.stringify(n)),e=JSON.parse(localStorage.getItem(t))}a.addEventListener("submit",l=>{l.preventDefault(),localStorage.removeItem(t),r.value="",o.value="",console.log(e)});
 //# sourceMappingURL=commonHelpers2.js.map
