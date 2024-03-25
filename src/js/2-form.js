@@ -19,7 +19,7 @@ function onFormInput(event) {
         message: textarea.value
     };
     localStorage.setItem(userInfoKey, JSON.stringify(currentState));
-    storageElem = JSON.parse(localStorage.getItem(userInfoKey)); // 
+    storageElem = JSON.parse(localStorage.getItem(userInfoKey)); 
 }
 
 form.addEventListener('submit', (event) => {
