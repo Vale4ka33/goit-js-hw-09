@@ -15,8 +15,8 @@ if (storageElem) {
 
 function onFormInput(event) {
     currentState = {
-        email: email.value,
-        message: textarea.value
+        email: email.value.trim(),
+        message: textarea.value.trim()
     };
     localStorage.setItem(userInfoKey, JSON.stringify(currentState));
     storageElem = JSON.parse(localStorage.getItem(userInfoKey)); 
@@ -24,6 +24,9 @@ function onFormInput(event) {
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (!currentState.email.trim() || !currentState.message.trim()) {
+        return;
+    }
     localStorage.removeItem(userInfoKey);
     email.value = '';
     textarea.value = '';
