@@ -7,19 +7,23 @@ let currentState = {};
 
 form.addEventListener('input', onFormInput);
 
-let storageElem = JSON.parse(localStorage.getItem(userInfoKey));
-if (storageElem) {
-    email.value = storageElem.email || '';
-    textarea.value = storageElem.message || '';
+function loadForm() {
+    let storageElem = JSON.parse(localStorage.getItem(userInfoKey));
+    if (storageElem) {
+        email.value = storageElem.email || '';
+        textarea.value = storageElem.message || '';
+        currentState = storageElem;
 }
+}
+
+loadForm();
 
 function onFormInput(event) {
     currentState = {
-        email: email.value.trim(),
-        message: textarea.value.trim()
+        email: email.value ? email.value.trim() : '',
+        message: textarea.value ? textarea.value.trim() : ''
     };
     localStorage.setItem(userInfoKey, JSON.stringify(currentState));
-    storageElem = JSON.parse(localStorage.getItem(userInfoKey)); 
 }
 
 form.addEventListener('submit', (event) => {
@@ -30,5 +34,5 @@ form.addEventListener('submit', (event) => {
     localStorage.removeItem(userInfoKey);
     email.value = '';
     textarea.value = '';
-    console.log(storageElem);
+    console.log(currentState);
 });
